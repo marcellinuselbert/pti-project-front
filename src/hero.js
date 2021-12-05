@@ -1,13 +1,23 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment, useState } from "react";
+import { Popover, Transition, Dialog } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-  { name: 'Lastest', href: '#' },
-  { name: 'Most Like', href: '#' },
-]
+  { name: "Lastest", href: "#" },
+  { name: "Most Like", href: "#" },
+];
 
 export default function Hero() {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -24,7 +34,10 @@ export default function Hero() {
 
           <Popover>
             <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
-              <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <nav
+                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                aria-label="Global"
+              >
                 <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                   <div className="flex items-center justify-end w-full md:w-auto">
                     <div className="-mr-2 flex items-center md:hidden">
@@ -37,11 +50,18 @@ export default function Hero() {
                 </div>
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   {navigation.map((item) => (
-                    <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="font-medium text-gray-500 hover:text-gray-900"
+                    >
                       {item.name}
                     </a>
                   ))}
-                  <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                  <a
+                    href="#"
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
                     Log in
                   </a>
                 </div>
@@ -63,7 +83,6 @@ export default function Hero() {
               >
                 <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                   <div className="px-5 pt-4 flex items-center justify-end">
-                    
                     <div className="-mr-2">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span className="sr-only">Close main menu</span>
@@ -96,26 +115,87 @@ export default function Hero() {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Welcome to PTI Cinema</span>{' '}
-                <span className="block text-indigo-600 xl:inline">Best Film Only</span>
+                <span className="block xl:inline">Welcome to PTI Cinema</span>{" "}
+                <span className="block text-indigo-600 xl:inline">
+                  Best Film Only
+                </span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                
-              </p>
+              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"></p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <button
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                  >
+                  <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                     Search
                   </button>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <button
+                    onClick={openModal}
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Add Film
                   </button>
+                  <Transition appear show={isOpen} as={Fragment}>
+                    <Dialog
+                      as="div"
+                      className="fixed inset-0 z-10 overflow-y-auto"
+                      onClose={closeModal}
+                    >
+                      <div className="min-h-screen px-4 text-center">
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <Dialog.Overlay className="fixed inset-0" />
+                        </Transition.Child>
+
+                        {/* This element is to trick the browser into centering the modal contents. */}
+                        <span
+                          className="inline-block h-screen align-middle"
+                          aria-hidden="true"
+                        >
+                          &#8203;
+                        </span>
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                            <Dialog.Title
+                              as="h3"
+                              className="text-lg font-medium leading-6 text-gray-900"
+                            >
+                              Add New Film
+                            </Dialog.Title>
+                            <div className="mt-2">
+                              <p className="text-sm text-gray-500">
+                                Disini bakal ada form add new Film
+                              </p>
+                            </div>
+
+                            <div className="mt-4">
+                              <button
+                                type="button"
+                                className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                onClick={closeModal}
+                              >
+                                Kirim
+                              </button>
+                            </div>
+                          </div>
+                        </Transition.Child>
+                      </div>
+                    </Dialog>
+                  </Transition>
                 </div>
               </div>
             </div>
@@ -130,5 +210,5 @@ export default function Hero() {
         />
       </div>
     </div>
-  )
+  );
 }
