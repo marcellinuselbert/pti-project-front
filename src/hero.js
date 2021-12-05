@@ -140,7 +140,7 @@ export default function Hero() {
                       className="fixed inset-0 z-10 overflow-y-auto"
                       onClose={closeModal}
                     >
-                      <div className="min-h-screen px-4 text-center">
+                      <div className="min-h-screen px-4 text-center bg-gray-200 bg-opacity-50">
                         <Transition.Child
                           as={Fragment}
                           enter="ease-out duration-300"
