@@ -1,10 +1,11 @@
 import { Fragment, useState } from "react";
 import { Popover, Transition, Dialog } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Lastest", href: "#" },
-  { name: "Most Like", href: "#" },
+  { name: "Lastest", href: "/lastest" },
+  { name: "Most Like", href: "/popular" },
 ];
 
 export default function Hero() {
@@ -50,13 +51,13 @@ export default function Hero() {
                 </div>
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="font-medium text-gray-500 hover:text-gray-900"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                   <a
                     href="#"

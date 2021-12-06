@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "@fontsource/roboto";
-import Hero from "./hero";
-import Section from "./section";
-import Table from "./table";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hero />
-    <Table />
-    <Section />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

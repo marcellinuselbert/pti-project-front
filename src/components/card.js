@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function FilmCard() {
   return (
     <div className="w-60 h-80 rounded-md shadow-lg">
-      <a href="#" className="h-full w-full">
+      <Link to="/film" className="h-full w-full">
         <div className="w-full h-1/2">
           <img
             className="object-cover h-full w-full rounded-md"
@@ -19,7 +20,7 @@ export default function FilmCard() {
             <p>2019</p>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
