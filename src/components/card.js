@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function FilmCard() {
   return (
-    <div className="w-60 h-80 rounded-md shadow-lg">
+    <div className="w-60 h-80 rounded-md shadow-lg transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
       <Link to="/film" className="h-full w-full">
         <div className="w-full h-1/2">
           <img
