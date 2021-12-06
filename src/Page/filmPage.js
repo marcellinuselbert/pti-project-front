@@ -1,4 +1,4 @@
-  import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function FilmPage() {
@@ -26,6 +26,16 @@ export default function FilmPage() {
               <div className='col-span-2 w-full h-full'>
                 <button className='h-full w-full bg-indigo-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
                 <Link to="/">Trailer</Link>
+                </button>
+              </div>
+              <div className='w-full h-full'>
+                <button className='h-full w-full bg-red-300 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
+                <Link to="/">Like</Link>
+                </button>
+              </div>
+              <div className='w-full h-full'>
+                <button className='h-full w-full bg-red-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
+                <Link to="/">Delete</Link>
                 </button>
               </div>
             </div>
