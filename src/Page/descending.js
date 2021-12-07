@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/section";
 import Table from "../components/table";
-
+import FilmCard from "../components/card";
 export default function Descending() {
+  const [films, setFilms] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    fetch("https://pti-final-project-be.herokuapp.com?sort=year_descending", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setFilms(result.data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, [films]);
   return (
     <div className="w-auto h-auto">
       <div className="w-full h-20 flex items-center justify-center lg:justify-start shadow-lg rounded-b-lg sticky">
@@ -24,7 +43,13 @@ export default function Descending() {
           </Link>
         </div>
       </div>
-      <Table />
+      <div className="w-auto h-auto flex items-center justify-center  ">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 m-5">
+          {films.map((film) => (
+            <FilmCard film={film} />
+          ))}
+        </div>
+      </div>
       <Section />
     </div>
   );
