@@ -178,12 +178,96 @@ export default function Hero() {
                               Add New Film
                             </Dialog.Title>
                             <div className="mt-2">
-                              <p className="text-sm text-gray-500">
-                                Disini bakal ada form add new Film
-                              </p>
+                              <form class="w-full max-w-sm">
+                                <div class="md:flex md:items-center mb-6">
+                                  <div class="md:w-1/3">
+                                    <label
+                                      class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                      for="inline-full-name"
+                                    >
+                                      Judul Film
+                                    </label>
+                                  </div>
+                                  <div class="md:w-2/3">
+                                    <input
+                                      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                      id="inline-full-name"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="md:flex md:items-center mb-6">
+                                  <div class="md:w-1/3">
+                                    <label
+                                      class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                      for="inline-full-name"
+                                    >
+                                      Tahun Rilis
+                                    </label>
+                                  </div>
+                                  <div class="md:w-2/3">
+                                    <input
+                                      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                      id="inline-full-name"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="md:flex md:items-center mb-6">
+                                  <div class="md:w-1/3">
+                                    <label
+                                      class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                      for="inline-full-name"
+                                    >
+                                      Genre
+                                    </label>
+                                  </div>
+                                  <div class="md:w-2/3">
+                                    <input
+                                      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                      id="inline-full-name"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="md:flex md:items-center mb-6">
+                                  <div class="md:w-1/3">
+                                    <label
+                                      class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                      for="inline-full-name"
+                                    >
+                                      Link Trailer
+                                    </label>
+                                  </div>
+                                  <div class="md:w-2/3">
+                                    <input
+                                      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                      id="inline-full-name"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="md:flex md:items-center mb-6">
+                                  <div class="md:w-1/3">
+                                    <label
+                                      class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                      for="inline-full-name"
+                                    >
+                                      Link Poster
+                                    </label>
+                                  </div>
+                                  <div class="md:w-2/3">
+                                    <input
+                                      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                      id="inline-full-name"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+                              </form>
                             </div>
 
-                            <div className="mt-4">
+                            <div className="mt-4 flex justify-end">
                               <button
                                 type="button"
                                 className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
