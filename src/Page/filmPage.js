@@ -15,27 +15,31 @@ export default function FilmPage() {
       </div>
       <div className="w-auto h-5/6 flex">
         <div className="w-1/2 h-full flex items-center justify-center">
-          <div className='w-auto h-auto'>
-            <div className='grid grid-cols-2 gap-5 text-xl'>
+          <div className="w-auto h-auto">
+            <div className="grid grid-cols-2 gap-5 text-xl">
               <div>Judul</div>
               <div>Avengers</div>
               <div>Genre</div>
               <div>Super Hero</div>
               <div>Tahun Rilis</div>
               <div>2018</div>
-              <div className='col-span-2 w-full h-full'>
-                <button className='h-full w-full bg-indigo-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
-                <Link to="/">Trailer</Link>
+              <div>Likes</div>
+              <div>0</div>
+              <div>Dislikes</div>
+              <div>0</div>
+              <div className="col-span-2 w-full h-full">
+                <button className="h-full w-full bg-indigo-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
+                  <Link to="/">Trailer</Link>
                 </button>
               </div>
-              <div className='w-full h-full'>
-                <button className='h-full w-full bg-red-300 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
-                <Link to="/">Like</Link>
+              <div className="w-full h-full">
+                <button className="h-full w-full bg-red-300 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
+                  <Link to="/">Like</Link>
                 </button>
               </div>
-              <div className='w-full h-full'>
-                <button className='h-full w-full bg-red-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110'>
-                <Link to="/">Delete</Link>
+              <div className="w-full h-full">
+                <button className="h-full w-full bg-red-600 text-white rounded-md p-2 transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
+                  <Link to="/">Delete</Link>
                 </button>
               </div>
             </div>
