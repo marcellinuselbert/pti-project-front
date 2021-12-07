@@ -45,6 +45,24 @@ export default function Hero() {
         (error) => {}
       );
   };
+
+  // const SearchFilm = (search) => {
+  //   fetch(`https://pti-final-project-be.herokuapp.com/?search=${search}`, {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         setIsLoaded(true);
+  //         setFilms(result.data);
+  //         console.log(result);
+  //       },
+  //       (error) => {
+  //         setIsLoaded(true);
+  //         setError(error);
+  //       }
+  //     );
+  // };
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
