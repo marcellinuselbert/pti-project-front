@@ -56,6 +56,7 @@ export default function FilmCard({ film }) {
       );
   };
   const deleteFilm = () => {
+    closeModal();
     fetch(`https://pti-final-project-be.herokuapp.com/${film.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -64,7 +65,6 @@ export default function FilmCard({ film }) {
       .then(
         (result) => {
           setIsLoaded(true);
-          window.location.reload(false);
         },
         (error) => {
           setIsLoaded(true);

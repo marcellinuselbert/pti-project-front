@@ -19,7 +19,8 @@ export default function Table() {
           setError(error);
         }
       );
-  }, []);
+  }, [films]);
+
   return (
     <div className="w-auto h-auto flex items-center justify-center  ">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 m-5">

@@ -20,6 +20,7 @@ export default function Hero() {
   }
 
   const postFilm = () => {
+    closeModal();
     const title = document.getElementById("title").value;
     const imageUrl = document.getElementById("image").value;
     const trailerUrl = document.getElementById("trailer").value;
@@ -33,13 +34,12 @@ export default function Hero() {
         imageUrl: imageUrl,
         trailerUrl: trailerUrl,
         genre: genre,
-        released_year: released_year,
+        released_year: parseInt(released_year),
       }),
     })
       .then((res) => res.json())
       .then(
         (result) => {
-          window.location.reload(false);
           console.log(result.data);
         },
         (error) => {}
