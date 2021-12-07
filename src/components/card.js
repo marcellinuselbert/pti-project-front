@@ -15,7 +15,7 @@ export default function FilmCard({ film }) {
   }
 
   return (
-    <div className="w-60 h-80 rounded-md shadow-lg transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
+    <div className="w-60 h-96 rounded-md shadow-lg transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
       <button className="h-full w-full" onClick={openModal}>
         <div className="w-full h-3/4">
           <img
