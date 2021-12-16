@@ -13,6 +13,65 @@ export default function FilmCard({ film }) {
   function openModal() {
     setIsOpen(true);
   }
+  const [filmDetail, setFilmDetail] = useState(false);
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const requestOptions = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+  };
+  const addLike = () => {
+    fetch(
+      `https://pti-final-project-be.herokuapp.com/${film.id}/like`,
+      requestOptions
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setFilmDetail(result.data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  };
+  const addDislike = () => {
+    fetch(
+      `https://pti-final-project-be.herokuapp.com/${film.id}/dislike`,
+      requestOptions
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setFilmDetail(result.data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  };
+  const deleteFilm = () => {
+    closeModal();
+    fetch(`https://pti-final-project-be.herokuapp.com/${film.id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  };
 
   return (
     <div className="w-60 h-96 rounded-md shadow-lg transition duration-500 ease-in-out transform hover:translate-y-1 hover:scale-110">
@@ -79,7 +138,7 @@ export default function FilmCard({ film }) {
                 </div>
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  className="text-lg  leading-6 text-gray-900 font-bold"
                 >
                   {film.title}
                 </Dialog.Title>
@@ -90,28 +149,37 @@ export default function FilmCard({ film }) {
                     <div>Tahun Rilis</div>
                     <div>{film.released_year}</div>
                     <div>Likes</div>
-                    <div>{film.like}</div>
+                    <div>{filmDetail ? filmDetail.like : film.like}</div>
+                    <div>Dislikes</div>
+                    <div>{filmDetail ? filmDetail.dislike : film.dislike}</div>
                   </div>
                 </div>
 
-                <div className="mt-4 flex justify-end gap-4">
+                <div className="mt-4 flex justify-center gap-4">
                   <a
                     href={film.trailerUrl}
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-300 border border-transparent rounded-md hover:bg-green-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-transparent rounded-md hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   >
                     Trailer
                   </a>
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-300 border border-transparent rounded-md hover:bg-red-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-500 border border-transparent rounded-md hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={addLike}
                   >
                     Likes
                   </button>
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-600 bg-gray-500 border border-transparent rounded-md hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={addDislike}
+                  >
+                    Dislikes
+                  </button>
+                  <button
+                    type="button"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 border border-transparent rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={deleteFilm}
                   >
                     Delete
                   </button>

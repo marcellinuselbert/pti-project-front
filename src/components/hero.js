@@ -19,6 +19,50 @@ export default function Hero() {
     setIsOpen(true);
   }
 
+  const postFilm = () => {
+    closeModal();
+    const title = document.getElementById("title").value;
+    const imageUrl = document.getElementById("image").value;
+    const trailerUrl = document.getElementById("trailer").value;
+    const genre = document.getElementById("genre").value;
+    const released_year = document.getElementById("year").value;
+    fetch("https://pti-final-project-be.herokuapp.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: title,
+        imageUrl: imageUrl,
+        trailerUrl: trailerUrl,
+        genre: genre,
+        released_year: parseInt(released_year),
+      }),
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result.data);
+        },
+        (error) => {}
+      );
+  };
+
+  // const SearchFilm = (search) => {
+  //   fetch(`https://pti-final-project-be.herokuapp.com/?search=${search}`, {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         setIsLoaded(true);
+  //         setFilms(result.data);
+  //         console.log(result);
+  //       },
+  //       (error) => {
+  //         setIsLoaded(true);
+  //         setError(error);
+  //       }
+  //     );
+  // };
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -191,7 +235,7 @@ export default function Hero() {
                                   <div class="md:w-2/3">
                                     <input
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                      id="inline-full-name"
+                                      id="title"
                                       type="text"
                                     />
                                   </div>
@@ -208,7 +252,7 @@ export default function Hero() {
                                   <div class="md:w-2/3">
                                     <input
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                      id="inline-full-name"
+                                      id="year"
                                       type="text"
                                     />
                                   </div>
@@ -225,7 +269,7 @@ export default function Hero() {
                                   <div class="md:w-2/3">
                                     <input
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                      id="inline-full-name"
+                                      id="genre"
                                       type="text"
                                     />
                                   </div>
@@ -242,7 +286,7 @@ export default function Hero() {
                                   <div class="md:w-2/3">
                                     <input
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                      id="inline-full-name"
+                                      id="trailer"
                                       type="text"
                                     />
                                   </div>
@@ -259,7 +303,7 @@ export default function Hero() {
                                   <div class="md:w-2/3">
                                     <input
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                      id="inline-full-name"
+                                      id="image"
                                       type="text"
                                     />
                                   </div>
@@ -271,7 +315,7 @@ export default function Hero() {
                               <button
                                 type="button"
                                 className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                                onClick={closeModal}
+                                onClick={postFilm}
                               >
                                 Kirim
                               </button>
