@@ -64,7 +64,7 @@ export default function Hero() {
   //     );
   // };
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden mb-10 lg:h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <svg
@@ -167,10 +167,22 @@ export default function Hero() {
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"></p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div class="md:w-2/3">
+                  <input
+                    class="bg-indigo-50 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-black sm:text-xl lg:text-2xl leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="search"
+                    type="text"
+                    placeholder="Cari Judul Film"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="mt-3 sm:mt-2 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                     Search
                   </button>
+                  {/* button untuk search */}
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <button
@@ -217,7 +229,7 @@ export default function Hero() {
                           <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                             <Dialog.Title
                               as="h3"
-                              className="text-lg font-medium leading-6 text-gray-900"
+                              className="text-lg font-medium leading-6 text-gray-900 pb-5 text-center"
                             >
                               Add New Film
                             </Dialog.Title>
@@ -237,6 +249,7 @@ export default function Hero() {
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                       id="title"
                                       type="text"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -254,6 +267,7 @@ export default function Hero() {
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                       id="year"
                                       type="text"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -271,6 +285,7 @@ export default function Hero() {
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                       id="genre"
                                       type="text"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -288,6 +303,7 @@ export default function Hero() {
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                       id="trailer"
                                       type="text"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -305,6 +321,7 @@ export default function Hero() {
                                       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                       id="image"
                                       type="text"
+                                      required
                                     />
                                   </div>
                                 </div>

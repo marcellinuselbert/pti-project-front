@@ -127,7 +127,7 @@ export default function FilmCard({ film }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-sm md:max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <div className="image-film w-full h-56 flex items-center justify-center mb-5">
                   <div className="w-36 h-full">
                     <img
@@ -182,13 +182,6 @@ export default function FilmCard({ film }) {
                     onClick={deleteFilm}
                   >
                     Delete
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
-                  >
-                    Close
                   </button>
                 </div>
               </div>
