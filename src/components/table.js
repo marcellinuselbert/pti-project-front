@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import FilmCard from "./card";
 
-export default function Table() {
+export default function Table({ search }) {
   const [films, setFilms] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  // console.log(search);
   useEffect(() => {
-    fetch("https://pti-final-project-be.herokuapp.com", { method: "GET" })
+    fetch(
+      `https://pti-final-project-be.herokuapp.com/search/?search=${search}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          setFilms(result.data);
-          console.log(result);
+          setFilms(result);
         },
         (error) => {
           setIsLoaded(true);

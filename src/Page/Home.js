@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="h-auto w-auto">
       <Hero />
-      <Table />
+      {/* <Table /> */}
       <Section />
     </div>
   );
